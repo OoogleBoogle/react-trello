@@ -2,7 +2,7 @@
   "name": "react-trello",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/js/index.jsx",
   "scripts": {
     "setup": "mkdir src && mkdir src/js src/scss && touch src/index.html src/js/index.js src/scss/main.scss .gitignore webpack.config.js",
     "mkdir": "mkdir -p build",
