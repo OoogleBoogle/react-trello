@@ -5,10 +5,10 @@
     border-radius: 4px;
 
     &:hover {
-        background-color: #FAEBD7;
+        background-color: $highlight;
     }
 }
 
 .highlight {
-    background-color: #FAEBD7;
+    background-color: $highlight;
 }

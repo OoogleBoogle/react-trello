@@ -3,7 +3,7 @@ var data = {
     "lists": [
         {
             "title": "List 1 title",
-            "cards": ["Card 1", "Card 2", "Card 3"]
+            "cards": []
         },
         {
             "title": "List 2 title",
@@ -26,6 +26,7 @@ var data = {
             "cards": ["Card 1", "Card 2", "Card 3"]
         }
     ]
+    cardName: 'heoianckshqu'
 }
 
 module.exports = data;

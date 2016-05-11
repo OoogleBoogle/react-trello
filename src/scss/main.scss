@@ -1,5 +1,10 @@
+$blue: #0079bf;
+$gray: #e3e3e3;
+$white: #fff;
+$highlight: #faebd7;
+
 html {
-    background-color: #0079BF;
+    background-color: $blue;
 }
 
 @import 'normalize';
