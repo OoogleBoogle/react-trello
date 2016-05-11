@@ -386,7 +386,7 @@ textarea {
   background-color: #E3E3E3;
   flex-grow: 1;
   margin: 1em 2em;
-  min-width: 20%; }
+  min-width: 280px; }
   .list .list-title {
     font-size: 1.3em;
     padding: .5em; }
@@ -396,5 +396,10 @@ textarea {
   margin: .3em .2em;
   background-color: white;
   border-radius: 4px; }
+  .card:hover {
+    background-color: #FAEBD7; }
+
+.highlight {
+  background-color: #FAEBD7; }
 
 /*# sourceMappingURL=main.css.map */

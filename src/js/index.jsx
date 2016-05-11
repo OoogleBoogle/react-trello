@@ -29,13 +29,27 @@ const List = function(props) {
     );
 };
 
-const Card = function(props) {
-    return (
-        <li className="card">{props.card}</li>
-    );
-};
+const Card = React.createClass({
+    getInitialState: function() {
+        return {
+            highlight: false
+        };
+    },
+
+    onClick: function() {
+        this.setState({
+            highlight: !this.state.highlight
+        });
+    },
+    render: function() {
+        let classes = 'card ' + (this.state.highlight ? 'highlight' : '');
+        return (
+            <li className={classes} onClick={this.onClick}>{this.props.card}</li>
+        );
+    }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Board data={data} />, document.querySelector('.app'));
-})
+});

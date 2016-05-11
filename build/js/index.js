@@ -94,13 +94,29 @@
 	    );
 	};
 	
-	var Card = function Card(props) {
-	    return _react2.default.createElement(
-	        'li',
-	        { className: 'card' },
-	        props.card
-	    );
-	};
+	var Card = _react2.default.createClass({
+	    displayName: 'Card',
+	
+	    getInitialState: function getInitialState() {
+	        return {
+	            highlight: false
+	        };
+	    },
+	
+	    onClick: function onClick() {
+	        this.setState({
+	            highlight: !this.state.highlight
+	        });
+	    },
+	    render: function render() {
+	        var classes = 'card ' + (this.state.highlight ? 'highlight' : '');
+	        return _react2.default.createElement(
+	            'li',
+	            { className: classes, onClick: this.onClick },
+	            this.props.card
+	        );
+	    }
+	});
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	    _reactDom2.default.render(_react2.default.createElement(Board, { data: _data2.default }), document.querySelector('.app'));

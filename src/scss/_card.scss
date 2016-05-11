@@ -3,4 +3,12 @@
     margin: .3em .2em;
     background-color: white;
     border-radius: 4px;
+
+    &:hover {
+        background-color: #FAEBD7;
+    }
+}
+
+.highlight {
+    background-color: #FAEBD7;
 }
