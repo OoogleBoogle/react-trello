@@ -54,9 +54,11 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _board = __webpack_require__(168);
 	
-	// import data from './data.js';
+	var _board2 = _interopRequireDefault(_board);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
@@ -102,63 +104,15 @@
 	            return list;
 	        });
 	        this.setState({
-	            lists: updatedList
+	            lists: updatedList,
+	            cardName: ''
 	        });
 	    },
 	
 	    render: function render() {
-	        return _react2.default.createElement(Board, { data: this.state, highlightClick: this.onClick, onText: this.onInputChange, newCard: this.createCard });
+	        return _react2.default.createElement(_board2.default, { data: this.state, highlightClick: this.onClick, onText: this.onInputChange, newCard: this.createCard });
 	    }
 	});
-	
-	var Board = function Board(props) {
-	    var listArray = [];
-	    props.data.lists.forEach(function (item) {
-	        listArray.push(_react2.default.createElement(List, { listItem: item, data: props.data, highlightClick: props.highlightClick, newCard: props.newCard, onText: props.onText }));
-	    });
-	    return _react2.default.createElement(
-	        'div',
-	        { className: 'board' },
-	        _react2.default.createElement(
-	            'h1',
-	            null,
-	            props.data.title
-	        ),
-	        listArray
-	    );
-	};
-	
-	var List = function List(props) {
-	    var cardArray = [];
-	    props.listItem.cards.forEach(function (card) {
-	        cardArray.push(_react2.default.createElement(Card, { card: card, data: props.data, highlightClick: props.highlightClick }));
-	    });
-	    return _react2.default.createElement(
-	        'ul',
-	        { className: 'list' },
-	        _react2.default.createElement(
-	            'li',
-	            { className: 'list-title' },
-	            props.listItem.title
-	        ),
-	        cardArray,
-	        _react2.default.createElement('input', { type: 'text', className: 'card-name-input', onChange: props.onText }),
-	        _react2.default.createElement(
-	            'button',
-	            { className: 'create-card', 'data-key': props.listItem.key, onClick: props.newCard },
-	            'Create Card'
-	        )
-	    );
-	};
-	
-	var Card = function Card(props) {
-	    var classes = 'card ' + (props.data.highlight ? 'highlight' : '');
-	    return _react2.default.createElement(
-	        'li',
-	        { className: classes, onClick: props.highlightClick },
-	        props.card
-	    );
-	};
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	    _reactDom2.default.render(_react2.default.createElement(Main, null), document.querySelector('.app'));
@@ -20254,6 +20208,105 @@
 	var ReactMount = __webpack_require__(158);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _list = __webpack_require__(169);
+	
+	var _list2 = _interopRequireDefault(_list);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Board = function Board(props) {
+	    var listArray = [];
+	    props.data.lists.forEach(function (item) {
+	        listArray.push(_react2.default.createElement(_list2.default, { listItem: item, data: props.data, highlightClick: props.highlightClick, newCard: props.newCard, onText: props.onText }));
+	    });
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'board' },
+	        _react2.default.createElement(
+	            'h1',
+	            null,
+	            props.data.title
+	        ),
+	        listArray
+	    );
+	};
+	
+	module.exports = Board;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _card = __webpack_require__(170);
+	
+	var _card2 = _interopRequireDefault(_card);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var List = function List(props) {
+	    var cardArray = [];
+	    props.listItem.cards.forEach(function (card) {
+	        cardArray.push(_react2.default.createElement(_card2.default, { card: card, data: props.data, highlightClick: props.highlightClick }));
+	    });
+	    return _react2.default.createElement(
+	        'ul',
+	        { className: 'list' },
+	        _react2.default.createElement(
+	            'li',
+	            { className: 'list-title' },
+	            props.listItem.title
+	        ),
+	        cardArray,
+	        _react2.default.createElement('input', { type: 'text', className: 'card-name-input', onChange: props.onText }),
+	        _react2.default.createElement(
+	            'button',
+	            { className: 'create-card', 'data-key': props.listItem.key, onClick: props.newCard },
+	            'Create Card'
+	        )
+	    );
+	};
+	
+	module.exports = List;
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Card = function Card(props) {
+	    var classes = 'card ' + (props.data.highlight ? 'highlight' : '');
+	    return _react2.default.createElement(
+	        'li',
+	        { className: classes, onClick: props.highlightClick },
+	        props.card
+	    );
+	};
+	
+	module.exports = Card;
 
 /***/ }
 /******/ ]);
